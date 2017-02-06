@@ -21,9 +21,10 @@ public class ClienteManager {
     public static Cliente save(Cliente cli) {
         
         getEm().getTransaction().begin();
+        //lo salva e nel db con getem().marge e ne fa una copia in salvato
         Cliente salvato = getEm().merge(cli);
         getEm().getTransaction().commit();
-
+        //restituisce la copia che ho creato
         return salvato;
     }
 
